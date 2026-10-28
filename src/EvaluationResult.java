@@ -1,3 +1,8 @@
-public record EvaluationResult(Decision decision, String reason) {
+public record EvaluationResult(
+        Decision decision,
+        ReasonCode reasonCode,
+        String reason
+) {
 
 }
+    

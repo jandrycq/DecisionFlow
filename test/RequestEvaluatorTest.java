@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class RequestEvaluatorTest {
 
@@ -11,7 +12,8 @@ public class RequestEvaluatorTest {
         EvaluationResult result = requestEvaluator.evaluate(request);
 
         assertEquals(Decision.APPROVED, result.decision());
-        assertEquals("Amount is at most 1000 and is not urgent", result.reason());
+        assertEquals(ReasonCode.AUTOMATIC_APPROVAL, result.reasonCode());
+        assertFalse(result.reason().isBlank());
     }
 
     @Test
@@ -21,6 +23,8 @@ public class RequestEvaluatorTest {
         EvaluationResult result = requestEvaluator.evaluate(request);
 
         assertEquals(Decision.MANUAL_REVIEW, result.decision());
+        assertEquals(ReasonCode.URGENT_REQUEST, result.reasonCode());
+        assertFalse(result.reason().isBlank());
     }
 
     @Test
@@ -30,7 +34,8 @@ public class RequestEvaluatorTest {
         EvaluationResult result = requestEvaluator.evaluate(request);
 
         assertEquals(Decision.MANUAL_REVIEW, result.decision());
-        assertEquals("Request does not meet automatic approval criteria and amount is at most 5000", result.reason());
+        assertEquals(ReasonCode.AMOUNT_REQUIRES_REVIEW, result.reasonCode());
+        assertFalse(result.reason().isBlank());
     }
 
     @Test
@@ -40,7 +45,8 @@ public class RequestEvaluatorTest {
         EvaluationResult result = requestEvaluator.evaluate(request);
 
         assertEquals(Decision.REJECTED, result.decision());
-        assertEquals("Amount exceeds 5000", result.reason());
+        assertEquals(ReasonCode.AMOUNT_LIMIT_EXCEEDED, result.reasonCode());
+        assertFalse(result.reason().isBlank());
     }
 
     @Test
