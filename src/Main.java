@@ -14,7 +14,7 @@ public class Main {
             requests.add(new Request(-1000, true));
 
         }catch (IllegalArgumentException e){
-            System.out.print("Error creating request: " + e.getMessage());
+            System.out.println("Error creating request: " + e.getMessage());
         }
 
         requests.add(new Request(0, false));
@@ -27,14 +27,16 @@ public class Main {
     private static void recorrerLista(List<Request> requests) {
         RequestEvaluator requestEvaluator = new RequestEvaluator();
         for (Request request : requests) {
-            imprimirResultado(requestEvaluator.evaluate(request), request);
+            EvaluationResult evaluationResult = requestEvaluator.evaluate(request);
+            imprimirResultado(evaluationResult, request);
             System.out.println("\n-------------------------------------------");
         }
     }
 
-    private static void imprimirResultado(Decision decision, Request request) {
+    private static void imprimirResultado(EvaluationResult evaluationResult, Request request) {
         System.out.println("\nRequest amount: " + request.getAmount());
         System.out.println("Urgent: " + request.isUrgent());
-        System.out.println("Decisión: " + decision);
+        System.out.println("Decision: " + evaluationResult.decision());
+        System.out.println("Reason: " + evaluationResult.reason());
     }
 }
