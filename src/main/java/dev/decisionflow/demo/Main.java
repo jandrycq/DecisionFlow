@@ -1,3 +1,9 @@
+package dev.decisionflow.demo;
+
+import dev.decisionflow.core.EvaluationResult;
+import dev.decisionflow.core.Request;
+import dev.decisionflow.core.RequestEvaluator;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,9 +41,9 @@ public class Main {
     }
 
     private static void printResult(EvaluationResult evaluationResult, Request request) {
-        System.out.println("\nRequest amount: " + request.getAmount());
+        System.out.println("\ndev.decisionflow.core.Request amount: " + request.getAmount());
         System.out.println("Urgent: " + request.isUrgent());
-        System.out.println("Decision: " + evaluationResult.decision());
+        System.out.println("dev.decisionflow.core.Decision: " + evaluationResult.decision());
         System.out.println("Reason: " + evaluationResult.reason());
         System.out.println("Reason Code: " + evaluationResult.reasonCode());
     }

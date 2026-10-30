@@ -10,17 +10,17 @@ The project explores how business rules can be evaluated consistently, with an e
 
 DecisionFlow currently provides a simple console-based decision system.
 
-- Request validation with the invariant `amount >= 0`.
+- dev.decisionflow.core.Request validation with the invariant `amount >= 0`.
 - Deterministic decision evaluation based on amount and urgency.
 - Three possible outcomes: `APPROVED`, `MANUAL_REVIEW`, and `REJECTED`.
 - Console output of the evaluation result.
 - Automated unit tests for validation and decision boundaries.
 
-### Decision Flow
+### dev.decisionflow.core.Decision Flow
 
-`Request → RequestEvaluator → Decision → Console`
+`dev.decisionflow.core.Request → dev.decisionflow.core.RequestEvaluator → dev.decisionflow.core.Decision → Console`
 
-Business rules are currently implemented directly inside `RequestEvaluator`.
+Business rules are currently implemented directly inside `dev.decisionflow.core.RequestEvaluator`.
 
 ## Tech Stack
 
@@ -36,7 +36,7 @@ The project includes 7 automated unit tests covering:
 
 - Valid and invalid request amounts.
 - The effect of the urgency flag.
-- Decision boundaries at 1000/1001 and 5000/5001.
+- dev.decisionflow.core.Decision boundaries at 1000/1001 and 5000/5001.
 
 All 7 tests passed during the V0.2 validation.
 
@@ -45,7 +45,7 @@ JUnit dependencies are currently configured manually in IntelliJ IDEA.
 ## Current Limitations
 
 - Console-based execution only.
-- Business rules are embedded in `RequestEvaluator`.
+- Business rules are embedded in `dev.decisionflow.core.RequestEvaluator`.
 - No Maven or Gradle configuration.
 - No database, REST API, or persistence layer.
 - No external deployment.

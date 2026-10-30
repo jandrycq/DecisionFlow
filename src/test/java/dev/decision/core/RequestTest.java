@@ -1,3 +1,6 @@
+package dev.decision.core;
+
+import dev.decisionflow.core.Request;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;

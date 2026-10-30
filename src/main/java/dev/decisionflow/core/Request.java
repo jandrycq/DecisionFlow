@@ -1,3 +1,4 @@
+package dev.decisionflow.core;
 
 public class Request {
     private double amount;

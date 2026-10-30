@@ -1,3 +1,5 @@
+package dev.decisionflow.core;
+
 public enum ReasonCode {
     AUTOMATIC_APPROVAL,
     URGENT_REQUEST,

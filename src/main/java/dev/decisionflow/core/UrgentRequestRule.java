@@ -1,3 +1,5 @@
+package dev.decisionflow.core;
+
 public class UrgentRequestRule implements RequestRule{
     @Override
     public boolean appliesTo(Request request) {

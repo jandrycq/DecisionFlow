@@ -1,3 +1,5 @@
+package dev.decisionflow.core;
+
 public class AmountReviewRule implements RequestRule{
 
     @Override
@@ -8,6 +10,6 @@ public class AmountReviewRule implements RequestRule{
     @Override
     public EvaluationResult resultFor(Request request) {
         return new EvaluationResult(Decision.MANUAL_REVIEW, ReasonCode.AMOUNT_REQUIRES_REVIEW,
-                "Request does not meet automatic approval criteria and amount is at most 5000");
+                "dev.decisionflow.core.Request does not meet automatic approval criteria and amount is at most 5000");
     }
 }

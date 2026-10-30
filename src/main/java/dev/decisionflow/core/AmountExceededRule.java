@@ -1,3 +1,5 @@
+package dev.decisionflow.core;
+
 public class AmountExceededRule implements RequestRule{
 
     @Override
